@@ -15,7 +15,10 @@ class _MoreViewState extends State<MoreView> {
       builder: (BuildContext context, ScreenFourModel model, Widget child) {
         return Scaffold(
           body: Center(
-            child: TitleText("More"),
+            child: TitleText(
+              "More",
+              size: 35,
+            ),
           ),
         );
       },

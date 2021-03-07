@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ss_task/core/enums/viewstate.dart';
 import 'package:ss_task/core/viewmodels/albums_model.dart';
+import 'package:ss_task/ui/shared/app_colors.dart';
 import 'package:ss_task/ui/views/core/base_view.dart';
 import 'package:ss_task/ui/widgets/album_item.dart';
 
@@ -21,6 +22,7 @@ class _AlbumsViewState extends State<AlbumsView> {
       onModelReady: (model) => model.loadUsers(widget.arguments.userId),
       builder: (BuildContext context, AlbumsModel model, Widget child) {
         return Scaffold(
+          backgroundColor: AppColors.BLACK,
             body: SafeArea(
           child: model.state == ViewState.Busy
               ? Container(

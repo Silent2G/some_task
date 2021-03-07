@@ -3,7 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:ss_task/core/viewmodels/home_model.dart';
 import 'package:ss_task/ui/shared/app_colors.dart';
 import 'package:ss_task/ui/views/core/base_view.dart';
+import 'package:ss_task/ui/views/home/widgets/bottom_navigation_painter.dart';
 import 'package:ss_task/ui/widgets/custom_bottom_navigation_bar.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeView extends StatefulWidget {
   HomeView({Key key}) : super(key: key);
@@ -18,17 +20,37 @@ class _HomeViewState extends State<HomeView> {
     return BaseView<HomeModel>(
       builder: (BuildContext context, HomeModel model, Widget child) {
         return Scaffold(
-          backgroundColor: AppColors.WHITE,
-          body: _buildPage(model),
-          bottomNavigationBar: CustomBottomNavigationBar(
-            currentIndex: model.tabSelectedIndex,
-            onChange: (int value) {
-              setState(() {
-                model.tabSelectedIndex = value;
-              });
-            },
-          ),
-        );
+            body: _buildPage(model),
+            floatingActionButtonLocation:
+                FloatingActionButtonLocation.centerDocked,
+            floatingActionButton: FloatingActionButton(
+              elevation: 0,
+              disabledElevation: 0,
+              focusElevation: 0,
+              highlightElevation: 0,
+              hoverElevation: 0,
+              backgroundColor: AppColors.BLACK,
+              onPressed: () {
+                print("click");
+              },
+              child: Icon(Icons.pause),
+            ),
+            bottomNavigationBar: Stack(
+              children: [
+                CustomPaint(
+                  size: Size(MediaQuery.of(context).size.width, 80.h),
+                  painter: BottomNavigationPainter(),
+                ),
+                CustomBottomNavigationBar(
+                  currentIndex: model.tabSelectedIndex,
+                  onChange: (int value) {
+                    setState(() {
+                      model.tabSelectedIndex = value;
+                    });
+                  },
+                ),
+              ],
+            ));
       },
     );
   }

@@ -34,8 +34,9 @@ class CustomBottomNavigationItemState
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 170.w,
-      child: GestureDetector(
+      width: 150.w,
+      child: InkWell(
+        radius: 80,
         onTap: () {
           _changeIndex(widget.index);
         },

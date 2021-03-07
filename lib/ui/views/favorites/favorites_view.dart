@@ -15,7 +15,10 @@ class _FavoritesViewState extends State<FavoritesView> {
       builder: (BuildContext context, ScreenThreeModel model, Widget child) {
         return Scaffold(
           body: Center(
-            child: TitleText("Favorites"),
+            child: TitleText(
+              "Favorites",
+              size: 35,
+            ),
           ),
         );
       },

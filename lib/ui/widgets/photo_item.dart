@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ss_task/core/models/photo.dart';
+import 'package:ss_task/ui/shared/app_colors.dart';
 import 'package:ss_task/ui/widgets/avatar_widget.dart';
 import 'package:ss_task/ui/widgets/shadow_wrap.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -12,7 +13,11 @@ class PhotoItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ShadowWrap(
+    return Container(
+      decoration: BoxDecoration(
+        color: AppColors.LIGHT_GRAY,
+        borderRadius: BorderRadius.all(Radius.circular(20.h)),
+      ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -20,7 +25,7 @@ class PhotoItem extends StatelessWidget {
           photo.url != null
               ? Container(
                   padding:
-                      EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+                      EdgeInsets.symmetric(horizontal: 30.w, vertical: 10.h),
                   child: AvatarWidget(
                     key: UniqueKey(),
                     url: photo.url,

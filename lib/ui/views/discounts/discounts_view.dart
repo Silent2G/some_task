@@ -15,7 +15,10 @@ class _DiscountsViewState extends State<DiscountsView> {
       builder: (BuildContext context, ScreenTwoModel model, Widget child) {
         return Scaffold(
           body: Center(
-            child: TitleText("Discounts"),
+            child: TitleText(
+              "Discounts",
+              size: 35,
+            ),
           ),
         );
       },

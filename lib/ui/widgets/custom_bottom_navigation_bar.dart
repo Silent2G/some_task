@@ -23,43 +23,56 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     return Container(
-        padding: EdgeInsets.only(top: 10.h),
-        height: 120.h,
+      color: AppColors.WHITE,
+      child: Container(
+        height: 100.h,
         width: width,
-        color: AppColors.WHITE,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
-            CustomBottomNavigationItem(
-              index: 0,
-              selectedIndex: widget.currentIndex,
-              iconPath: "assets/images/svg/ic_home_nav.svg",
-              label: "HOME",
-              onChange: widget.onChange,
+            SizedBox(
+              height: 10.h,
             ),
-            CustomBottomNavigationItem(
-              index: 1,
-              selectedIndex: widget.currentIndex,
-              iconPath: "assets/images/svg/ic_discounts_nav.svg",
-              label: "DISCOUNTS",
-              onChange: widget.onChange,
-            ),
-            CustomBottomNavigationItem(
-              index: 2,
-              selectedIndex: widget.currentIndex,
-              iconPath: "assets/images/svg/ic_favorites_nav.svg",
-              label: "FAVORITES",
-              onChange: widget.onChange,
-            ),
-            CustomBottomNavigationItem(
-              index: 3,
-              selectedIndex: widget.currentIndex,
-              iconPath: "assets/images/svg/ic_more_nav.svg",
-              label: "MORE",
-              onChange: widget.onChange,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                CustomBottomNavigationItem(
+                  index: 0,
+                  selectedIndex: widget.currentIndex,
+                  iconPath: "assets/images/svg/ic_home_nav.svg",
+                  label: "HOME",
+                  onChange: widget.onChange,
+                ),
+                CustomBottomNavigationItem(
+                  index: 1,
+                  selectedIndex: widget.currentIndex,
+                  iconPath: "assets/images/svg/ic_discounts_nav.svg",
+                  label: "DISCOUNTS",
+                  onChange: widget.onChange,
+                ),
+                SizedBox(
+                  width: 150.w,
+                ),
+                CustomBottomNavigationItem(
+                  index: 2,
+                  selectedIndex: widget.currentIndex,
+                  iconPath: "assets/images/svg/ic_favorites_nav.svg",
+                  label: "FAVORITES",
+                  onChange: widget.onChange,
+                ),
+                CustomBottomNavigationItem(
+                  index: 3,
+                  selectedIndex: widget.currentIndex,
+                  iconPath: "assets/images/svg/ic_more_nav.svg",
+                  label: "MORE",
+                  onChange: widget.onChange,
+                ),
+              ],
             ),
           ],
-        ));
+        ),
+      ),
+    );
   }
 }

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:ss_task/core/models/album.dart';
-import 'package:ss_task/ui/views/photos/photos_view.dart';
-import 'package:ss_task/ui/widgets/shadow_wrap.dart';
-import 'package:ss_task/ui/widgets/text.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ss_task/core/models/album.dart';
+import 'package:ss_task/ui/shared/app_colors.dart';
+import 'package:ss_task/ui/views/photos/photos_view.dart';
+import 'package:ss_task/ui/widgets/text.dart';
 
 class AlbumItem extends StatelessWidget {
   final Album album;
@@ -17,7 +17,11 @@ class AlbumItem extends StatelessWidget {
         Navigator.pushNamed(context, "/photos",
             arguments: PhotosViewArguments(albumId: album.id));
       },
-      child: ShadowWrap(
+      child: Container(
+        decoration: BoxDecoration(
+          color: AppColors.LIGHT_GRAY,
+          borderRadius: BorderRadius.all(Radius.circular(20.h)),
+        ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.start,
