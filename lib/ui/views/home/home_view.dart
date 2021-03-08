@@ -17,6 +17,7 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return BaseView<HomeModel>(
       builder: (BuildContext context, HomeModel model, Widget child) {
         return Scaffold(
@@ -31,14 +32,14 @@ class _HomeViewState extends State<HomeView> {
               hoverElevation: 0,
               backgroundColor: AppColors.BLACK,
               onPressed: () {
-                print("click");
+                print("click test");
               },
               child: Icon(Icons.pause),
             ),
             bottomNavigationBar: Stack(
               children: [
                 CustomPaint(
-                  size: Size(MediaQuery.of(context).size.width, 80.h),
+                  size: Size(width, 80.h),
                   painter: BottomNavigationPainter(),
                 ),
                 CustomBottomNavigationBar(
